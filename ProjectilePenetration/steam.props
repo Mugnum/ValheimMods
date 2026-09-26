@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!-- Steam Path Setup -->
+	<PropertyGroup>
+		<!-- On Windows: attempt to get the Steam install location from the registry -->
+		<_SteamRegPath>HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Valve\Steam</_SteamRegPath>
+		<SteamInstallPathFromRegistry Condition="'$(OS)' == 'Windows_NT'">$([MSBuild]::GetRegistryValueFromView('$(_SteamRegPath)', 'InstallPath', null, RegistryView.Registry32))</SteamInstallPathFromRegistry>
+
+		<!-- Use the registry value if available -->
+		<SteamDir Condition="'$(OS)' == 'Windows_NT' and '$(SteamInstallPathFromRegistry)' != ''">
+			$([MSBuild]::NormalizePath('$(SteamInstallPathFromRegistry)', 'steamapps'))
+		</SteamDir>
+
+		<!-- Default for Windows if registry lookup fails -->
+		<SteamDir Condition="'$(OS)' == 'Windows_NT' and '$(SteamInstallPathFromRegistry)' == ''">
+			$([MSBuild]::NormalizePath('C:', 'Program Files (x86)', 'Steam', 'steamapps'))
+		</SteamDir>
+
+		<!-- Default for non-Windows -->
+		<SteamDir Condition="'$(OS)' != 'Windows_NT'">$(HOME)/.steam/steam/steamapps</SteamDir>
+
+		<!-- Game configuration -->
+		<GameName>Valheim</GameName>
+		<GameAppId>892970</GameAppId>
+
+		<EnableHarmony Condition="'$(EnableHarmony)'==''">true</EnableHarmony>
+	</PropertyGroup>
+
+	<!-- Compute the path to the libraryfolders.vdf file -->
+	<PropertyGroup>
+		<CleanSteamDir>$([System.Text.RegularExpressions.Regex]::Replace('$(SteamDir)', '^\s+|\s+$', ''))</CleanSteamDir>
+		<LibraryFoldersFile>$([MSBuild]::NormalizePath('$(CleanSteamDir)', 'libraryfolders.vdf'))</LibraryFoldersFile>
+	</PropertyGroup>
+
+	<!-- Settings that don't depend on file contents -->
+	<PropertyGroup>
+		<DisableImplicitFrameworkReferences>false</DisableImplicitFrameworkReferences>
+	</PropertyGroup>
+
+	<!-- Target to extract and set the Steam library paths -->
+	<Target Name="ProcessSteamLibraryPaths" BeforeTargets="ResolveAssemblyReferences">
+		<!-- Read the libraryfolders.vdf file -->
+		<ReadLinesFromFile File="$(LibraryFoldersFile)" Condition="Exists('$(LibraryFoldersFile)')">
+			<Output TaskParameter="Lines" PropertyName="LibraryFileContent" />
+		</ReadLinesFromFile>
+
+		<!-- Extract the Steam library path that contains game -->
+		<PropertyGroup>
+			<!-- Look for the section with the GameAppId and extract the path -->
+			<LibraryPathMatch>$([System.Text.RegularExpressions.Regex]::Match('$(LibraryFileContent)', '.*"path"\s+"([^"]+)".*"$(GameAppId)"\s+').Groups[1].Value)</LibraryPathMatch>
+
+			<!-- If we found a match, use it; otherwise try to extract any path -->
+			<SteamLibraryPath Condition="'$(LibraryPathMatch)' != ''">$(LibraryPathMatch)</SteamLibraryPath>
+			<SteamLibraryPath Condition="'$(LibraryPathMatch)' == ''">$([System.Text.RegularExpressions.Regex]::Match('$(LibraryFileContent)', '.*"path"\s+"([^"]+)"').Groups[1].Value)</SteamLibraryPath>
+
+			<!-- Set GameDir and Managed DLLs path -->
+			<GameDir>$([MSBuild]::NormalizePath('$(SteamLibraryPath)', 'steamapps', 'common', 'Valheim'))</GameDir>
+			<GameManagedDir>$([MSBuild]::NormalizePath('$(GameDir)', 'valheim_Data', 'Managed'))</GameManagedDir>
+		</PropertyGroup>
+
+		<Message Importance="high" Text="Extracted SteamLibraryPath: [$(SteamLibraryPath)]" />
+		<Message Importance="high" Text="GameDir: [$(GameDir)]" />
+		<Message Importance="high" Text="GameManagedDir: [$(GameManagedDir)]" />
+
+		<!-- Add references for game managed DLLs -->
+		<ItemGroup Condition="Exists('$(GameManagedDir)')">
+			<Reference Include="assembly_valheim">
+				<HintPath>$(GameManagedDir)\assembly_valheim.dll</HintPath>
+				<Private>false</Private>
+			</Reference>
+
+			<Reference Include="UnityEngine">
+				<HintPath>$(GameManagedDir)\UnityEngine.dll</HintPath>
+				<Private>false</Private>
+			</Reference>
+
+			<Reference Include="UnityEngine.CoreModule">
+				<HintPath>$(GameManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+				<Private>false</Private>
+			</Reference>
+
+			<Reference Include="UnityEngine.PhysicsModule">
+				<HintPath>$(GameManagedDir)\UnityEngine.PhysicsModule.dll</HintPath>
+				<Private>false</Private>
+			</Reference>
+		</ItemGroup>
+
+		<ItemGroup Condition="Exists('$(GameDir)\BepInEx\core')">
+			<Reference Include="BepInEx">
+				<HintPath>$(GameDir)\BepInEx\core\BepInEx.dll</HintPath>
+				<Private>false</Private>
+			</Reference>
+			<Reference Include="MonoMod.RuntimeDetour">
+				<HintPath>$(GameDir)\BepInEx\core\MonoMod.RuntimeDetour.dll</HintPath>
+				<Private>false</Private>
+			</Reference>
+		</ItemGroup>
+
+		<ItemGroup Condition="'$(EnableHarmony)' == 'true' and Exists('$(GameDir)\BepInEx\core')">
+			<Reference Include="0Harmony">
+				<HintPath>$(GameDir)\BepInEx\core\0Harmony.dll</HintPath>
+				<Private>false</Private>
+			</Reference>
+		</ItemGroup>
+	</Target>
+
+</Project>
+
