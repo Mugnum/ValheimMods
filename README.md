@@ -13,4 +13,4 @@
 1. Have Valheim installed via Steam.
 2. Load solution.
 3. Build "Release" version.
-4. Copy resulting .dll file from \ValheimMods\<mod>\bin\Release\ to \Valheim\BepInEx\plugins\.
+4. Copy resulting .dll file from \ValheimMod\mod\bin\Release\ to \Valheim\BepInEx\plugins\.
