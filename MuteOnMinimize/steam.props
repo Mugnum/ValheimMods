@@ -58,10 +58,6 @@
 			<GameManagedDir>$([MSBuild]::NormalizePath('$(GameDir)', 'valheim_Data', 'Managed'))</GameManagedDir>
 		</PropertyGroup>
 
-		<Message Importance="high" Text="Extracted SteamLibraryPath: [$(SteamLibraryPath)]" />
-		<Message Importance="high" Text="GameDir: [$(GameDir)]" />
-		<Message Importance="high" Text="GameManagedDir: [$(GameManagedDir)]" />
-
 		<!-- Add references for game managed DLLs -->
 		<ItemGroup Condition="Exists('$(GameManagedDir)')">
 			<Reference Include="assembly_valheim">

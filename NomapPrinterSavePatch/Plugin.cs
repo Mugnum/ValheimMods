@@ -5,6 +5,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 
 namespace Mugnum.ValheimMods.NomapPrinterSavePatch;
 
@@ -75,6 +76,11 @@ public class Plugin : BaseUnityPlugin
 	/// World UId.
 	/// </summary>
 	private static long GenerationWorldUid;
+
+	/// <summary>
+	/// Thread for saving generated map.
+	/// </summary>
+	private static Thread SaveThread;
 
 	/// <summary>
 	/// Harmony instance.
@@ -232,25 +238,34 @@ public class Plugin : BaseUnityPlugin
 
 		ClearPendingGeneration();
 
-		try
+		if (SaveThread?.IsAlive == true)
 		{
-			// Reuse NomapPrinter's own implementation:
-			// - checks LocalFolder mode;
-			// - checks local player;
-			// - checks map readiness;
-			// - uses NomapPrinter's filename/folder rules;
-			// - performs PNG encoding and writing.
-			SaveMapToLocalFileMethod.Invoke(null, [player]);
+			Log.LogInfo("Previous NomapPrinter map save is still running. Skipping duplicate save.");
+			return;
 		}
-		catch (TargetInvocationException ex)
+
+		SaveThread = new Thread(() =>
 		{
-			var innerEx = ex.InnerException ?? ex;
-			Log.LogError($"NomapPrinter map persistence failed:\r\n{innerEx}");
-		}
-		catch (Exception ex)
+			try
+			{
+				SaveMapToLocalFileMethod.Invoke(null, [player]);
+			}
+			catch (TargetInvocationException ex)
+			{
+				var innerEx = ex.InnerException ?? ex;
+				Log.LogError($"NomapPrinter map persistence failed:\r\n{innerEx}");
+			}
+			catch (Exception ex)
+			{
+				Log.LogError($"NomapPrinter map persistence failed:\r\n{ex}");
+			}
+		})
 		{
-			Log.LogError($"NomapPrinter map persistence failed:\r\n{ex}");
-		}
+			IsBackground = true,
+			Name = "NomapPointer LocalFolder Save"
+		};
+
+		SaveThread.Start();
 	}
 
 	/// <summary>
