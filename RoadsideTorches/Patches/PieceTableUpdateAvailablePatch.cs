@@ -50,14 +50,7 @@ internal static class PieceTableUpdateAvailablePatch
 			return false;
 		}
 
-		const string CloneSuffix = "(Clone)";
 		const string TorchPrefabPrefix = "piece_groundtorch";
-
-		if (name.EndsWith(CloneSuffix, StringComparison.OrdinalIgnoreCase))
-		{
-			name = name.Substring(0, name.Length - CloneSuffix.Length);
-		}
-
 		return name.StartsWith(TorchPrefabPrefix, StringComparison.OrdinalIgnoreCase);
 	}
 }
