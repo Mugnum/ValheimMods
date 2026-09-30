@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Mugnum.ValheimMods.MuteOnMinimize;
 
 /// <summary>
-/// Audio manager for muting game on minimize.
+/// Mute on Minimize plugin.
 /// </summary>
 [BepInPlugin(PluginId, PluginName, PluginVersion)]
 public class Plugin : BaseUnityPlugin
@@ -12,14 +12,14 @@ public class Plugin : BaseUnityPlugin
 	#region Constants
 
 	/// <summary>
-	/// Plugin identifier.
+	/// Plugin Id.
 	/// </summary>
 	private const string PluginId = "Mugnum.MuteOnMinimize";
 
 	/// <summary>
 	/// Plugin name.
 	/// </summary>
-	public const string PluginName = "Mute On Minimize";
+	public const string PluginName = "Mute on Minimize";
 
 	/// <summary>
 	/// Plugin version.

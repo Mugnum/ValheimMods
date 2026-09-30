@@ -7,13 +7,13 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 
-namespace Mugnum.ValheimMods.NomapPrinterSavePatch;
+namespace Mugnum.ValheimMods.NomapPrinter.SavePatch;
 
 /// <summary>
-/// Patch for <see cref="NomapPrinterGuid"/> mod, replacing map saving logic.
+/// Patch for "NomapPrinter", replacing map saving logic.
 /// </summary>
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
-[BepInDependency(NomapPrinterGuid, NomapPrinterVersion)]
+[BepInDependency(MainPluginGuid, MainPluginVersion)]
 public class Plugin : BaseUnityPlugin
 {
 	#region Constants
@@ -36,12 +36,12 @@ public class Plugin : BaseUnityPlugin
 	/// <summary>
 	/// Main mod plugin Id.
 	/// </summary>
-	private const string NomapPrinterGuid = "shudnal.NomapPrinter";
+	private const string MainPluginGuid = "shudnal.NomapPrinter";
 
 	/// <summary>
 	/// Main mod plugin version.
 	/// </summary>
-	private const string NomapPrinterVersion = "1.5.6";
+	private const string MainPluginVersion = "1.5.6";
 
 	#endregion
 
@@ -83,7 +83,7 @@ public class Plugin : BaseUnityPlugin
 	private static Thread SaveThread;
 
 	/// <summary>
-	/// Harmony instance.
+	/// Harmony hook.
 	/// </summary>
 	private Harmony _harmony;
 
@@ -116,7 +116,7 @@ public class Plugin : BaseUnityPlugin
 			|| SaveMapToLocalFileMethod == null
 			|| IsWorkingField == null)
 		{
-			Logger.LogError("Patch failed to apply: NomapPrinter's types do not match expected layout.");
+			Logger.LogError("Patch failed to apply: NomapPrinter's types don't match expected layout.");
 			return;
 		}
 
@@ -158,7 +158,7 @@ public class Plugin : BaseUnityPlugin
 		}
 
 		var ownedPrefixes = patchInfo.Prefixes
-			.Where(p => NomapPrinterGuid.Equals(p.owner, StringComparison.OrdinalIgnoreCase))
+			.Where(p => MainPluginGuid.Equals(p.owner, StringComparison.OrdinalIgnoreCase))
 			.ToArray();
 
 		var savePatch = ownedPrefixes.FirstOrDefault(p =>

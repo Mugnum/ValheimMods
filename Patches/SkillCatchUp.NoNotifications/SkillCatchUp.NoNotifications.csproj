@@ -4,10 +4,8 @@
 		<TargetFramework>net472</TargetFramework>
 		<LangVersion>latest</LangVersion>
 		<OutputType>Library</OutputType>
-
-		<AssemblyName>NomapPrinterSavePatch</AssemblyName>
+		<AssemblyName>SkillCatchUp.NoNotifications</AssemblyName>
 		<RootNamespace>Mugnum.ValheimMods.$(AssemblyName)</RootNamespace>
-
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Deterministic>true</Deterministic>

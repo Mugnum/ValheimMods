@@ -177,7 +177,7 @@ public class Plugin : BaseUnityPlugin
 		const string SectionName = "Penetration - Main";
 		var order = 100;
 		IsPenetrationEnabled = Config.Bind(SectionName, "Enable", true,
-			CreateDescription(order--, "Enables penetrations module. Allows player-fired arrows to penetrate enemies."));
+			CreateDescription(order--, "Enables penetration module. Allows player-fired arrows to penetrate enemies."));
 
 		DamageRetentionRatio = Config.Bind(SectionName, "Damage retention ratio", 0.8f,
 			CreateDescription(order--, "Damage multiplier on each penetration. At 1.0 the damage is unchanged.",
