@@ -45,12 +45,8 @@ internal static class PieceTableUpdateAvailablePatch
 	/// <returns> Flag indicating that piece is a constructible torch. </returns>
 	private static bool CheckIsStandingTorch(string name)
 	{
-		if (string.IsNullOrEmpty(name))
-		{
-			return false;
-		}
-
 		const string TorchPrefabPrefix = "piece_groundtorch";
-		return name.StartsWith(TorchPrefabPrefix, StringComparison.OrdinalIgnoreCase);
+		return !string.IsNullOrEmpty(name)
+			&& name.StartsWith(TorchPrefabPrefix, StringComparison.OrdinalIgnoreCase);
 	}
 }
