@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="steam.props" Condition="Exists('steam.props')" />
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<OutputType>Library</OutputType>
+		<AssemblyName>NomapPrinter.BiomePatch</AssemblyName>
+		<RootNamespace>Mugnum.ValheimMods.$(AssemblyName)</RootNamespace>
+		<Nullable>disable</Nullable>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Deterministic>true</Deterministic>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<Target Name="AddBiomeLabelReferences" AfterTargets="ProcessSteamLibraryPaths">
+		<ItemGroup Condition="Exists('$(GameManagedDir)')">
+			<Reference Include="Unity.TextMeshPro">
+				<HintPath>$(GameManagedDir)\Unity.TextMeshPro.dll</HintPath>
+				<Private>false</Private>
+			</Reference>
+		</ItemGroup>
+	</Target>
+</Project>

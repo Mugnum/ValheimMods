@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValheimVisualEnhanced.FadeP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComfortHints", "ComfortHints\ComfortHints.csproj", "{E4E4AFA5-3FE9-4BBE-90B2-466183AD2C6A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NomapPrinter.BiomePatch", "Patches\NomapPrinter.BiomePatch\NomapPrinter.BiomePatch.csproj", "{E7AE696A-7C87-4A97-BE5B-E5FB3D794095}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,10 @@ Global
 		{E4E4AFA5-3FE9-4BBE-90B2-466183AD2C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4E4AFA5-3FE9-4BBE-90B2-466183AD2C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4E4AFA5-3FE9-4BBE-90B2-466183AD2C6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7AE696A-7C87-4A97-BE5B-E5FB3D794095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7AE696A-7C87-4A97-BE5B-E5FB3D794095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7AE696A-7C87-4A97-BE5B-E5FB3D794095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7AE696A-7C87-4A97-BE5B-E5FB3D794095}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{C30B350D-2DB7-982F-CEEC-252B9E17BCA0} = {5032D2F4-83A6-40E0-AFE1-129F6A416FDD}
 		{EDF8E43E-308C-E5DE-9C20-5A68A5890FD2} = {5032D2F4-83A6-40E0-AFE1-129F6A416FDD}
 		{03CA3B7F-A248-80ED-6C9A-1E8A96B50C84} = {5032D2F4-83A6-40E0-AFE1-129F6A416FDD}
+		{E7AE696A-7C87-4A97-BE5B-E5FB3D794095} = {5032D2F4-83A6-40E0-AFE1-129F6A416FDD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7ABD7C06-F88A-40E3-BE7C-C91FA0264641}

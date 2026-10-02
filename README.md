@@ -12,6 +12,9 @@
 - Patch: NomapPrinter save patch  
   Patches [NomapPrinter](https://www.nexusmods.com/valheim/mods/2505), with LocalFolder option writing to disk once after interacting with cartography table, instead of on every game save.
 
+- Patch: NomapPrinter biome patch
+  Shows the player's current localized biome in the top right corner of NomapPrinter's baked map in NoMap worlds. The label stays fixed while dragging or zooming and refreshes while the map is open. Requires NomapPrinter 1.5.6 or newer and Valheim 1.0.16. Works alongside the save patch, with the interactive map and saved PNG unchanged.
+
 - Patch: SkillCatchUp no notifications  
   Patches [SkillCatchUp](https://thunderstore.io/c/valheim/p/Qua8ion/SkillCatchUp/), showing notifications ding only every 5 levels during catchup period. Interval is configurable.
 
