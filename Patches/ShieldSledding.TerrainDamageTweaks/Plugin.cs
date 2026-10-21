@@ -26,7 +26,7 @@ public sealed class Plugin : BaseUnityPlugin
 	/// <summary>
 	/// Plugin version.
 	/// </summary>
-	public const string PluginVersion = "1.0.0";
+	public const string PluginVersion = "1.1.0";
 
 	/// <summary>
 	/// Vegetation interaction mode.
@@ -110,25 +110,4 @@ public sealed class Plugin : BaseUnityPlugin
 		_harmony?.UnpatchSelf();
 		_harmony = null;
 	}
-}
-
-/// <summary>
-/// Sled interactions with bushes and small trees.
-/// </summary>
-public enum VegetationMode
-{
-	/// <summary>
-	/// Preserve vegetation without changing collision handling.
-	/// </summary>
-	DisableDamage,
-
-	/// <summary>
-	/// Preserve vegetation and pass through eligible small plants.
-	/// </summary>
-	IgnoreSmallVegetationCollisions,
-
-	/// <summary>
-	/// Retain Shield Sledding's original damage.
-	/// </summary>
-	OriginalDamage
 }
