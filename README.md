@@ -11,7 +11,8 @@
   Has customizable filters for ignored item types (meads, arrows, etc), including custom item names.
 
 - Mass torch refuel  
-  Hold `Alt + E` (can be changed) over a built torch to refuel nearby torches at once, so you don't have to run around each torch in your base. Prioritizes closest nearby torches. Optionally allows to also refuel nearby campfires that require wood, which is a separate refueling process (meaning, refueling torches doesn't use up your wood).
+  Hold `Alt + E` (can be changed) over a built torch to refuel nearby torches at once, so you don't have to run around each torch in your base. Prioritizes closest nearby torches.
+  Optionally allows to also refuel nearby campfires that require wood, which is a separate refueling process (meaning, refueling torches doesn't use up your wood).
 
 - [Mute on minimize](https://www.nexusmods.com/valheim/mods/2895)  
   Mutes game audio on minimize.
