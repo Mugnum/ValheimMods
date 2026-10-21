@@ -7,7 +7,7 @@
   Useful for multi-monitor setup in borderless mode.
 
 - Mass chest stacking  
-  Hold `Alt + E` (can be changed) over a chest to move items from inventory to nearby chests, respecting player's chest organization.  
+  Hold `Alt + E` (can be changed) over a chest to move items from inventory to nearby chests, so you don't have to hold to stack on each chest one at a time. Respects player's chest organization.  
   Has customizable filters for ignored item types (meads, arrows, etc), including custom item names.
 
 - Mass torch refuel  
