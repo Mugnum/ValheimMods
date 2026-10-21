@@ -42,7 +42,8 @@ I'll be sure to publish these soon, just can't be bothered for now. It's extreme
   Currently only allows to rebind `Escape` shortcut which cancels sledding.
 
 - ShieldSledding: terrain damage tweaks  
-  Patches [ShieldSledding](https://www.nexusmods.com/valheim/mods/3433), allowing to replace the destruction of shrubs with turning off collisions instead. Includes optional stamina and speed penalties for colliding with shrubs.
+  Patches [ShieldSledding](https://www.nexusmods.com/valheim/mods/3433), allowing to replace the destruction of shrubs with turning off collisions instead.  
+  Includes optional stamina and speed penalties for colliding with shrubs.
 
 - SkillCatchUp: no notifications  
   Patches [SkillCatchUp](https://thunderstore.io/c/valheim/p/Qua8ion/SkillCatchUp/), showing notifications ding only every 5 levels during catchup period. Interval is configurable.
