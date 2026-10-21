@@ -11,7 +11,7 @@
 
 - Mass torch refuel  
   Hold `Alt + E` (customizable) over a torch to refuel nearby torches at once, so you don't have to run around each torch in your base. Prioritizes closest nearby torches.  
-  Includes optional nearby campfires refuel.
+  Optionally includes refueling of nearby campfires.
 
 - [Mute on minimize](https://www.nexusmods.com/valheim/mods/2895)  
   Mutes game audio on minimize.
