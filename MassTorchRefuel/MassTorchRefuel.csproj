@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="steam.props" Condition="Exists('steam.props')" />
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<OutputType>Library</OutputType>
+		<AssemblyName>MassTorchRefuel</AssemblyName>
+		<RootNamespace>Mugnum.ValheimMods.$(AssemblyName)</RootNamespace>
+		<Nullable>disable</Nullable>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Deterministic>true</Deterministic>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<Target Name="AddMassRefuelReferences" AfterTargets="ProcessSteamLibraryPaths">
+		<ItemGroup Condition="Exists('$(GameManagedDir)')">
+			<Reference Include="assembly_utils">
+				<HintPath>$(GameManagedDir)\assembly_utils.dll</HintPath>
+				<Private>false</Private>
+			</Reference>
+			<Reference Include="assembly_guiutils">
+				<HintPath>$(GameManagedDir)\assembly_guiutils.dll</HintPath>
+				<Private>false</Private>
+			</Reference>
+		</ItemGroup>
+	</Target>
+</Project>

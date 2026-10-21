@@ -28,7 +28,7 @@ public class Plugin : BaseUnityPlugin
 	/// <summary>
 	/// Plugin version.
 	/// </summary>
-	public const string PluginVersion = "0.2.0";
+	public const string PluginVersion = "1.0.0";
 
 	#endregion
 
