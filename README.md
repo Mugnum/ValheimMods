@@ -39,7 +39,8 @@ I'll be sure to publish these soon, just can't be bothered for now. It's extreme
   Patches [ShieldSledding](https://www.nexusmods.com/valheim/mods/3433), clamping it's math operations, mitigating bugs where player can get jolted into the sky on rare occasions.
 
 - ShieldSledding: remap shortcuts  
-  Patches [ShieldSledding](https://www.nexusmods.com/valheim/mods/3433), allowing to remap some hardcoded shortcuts. Currently only allows to rebind `Escape` shortcut which cancels sledding.
+  Patches [ShieldSledding](https://www.nexusmods.com/valheim/mods/3433), allowing to remap some hardcoded shortcuts.
+  Currently only allows to rebind `Escape` shortcut which cancels sledding.
 
 - ShieldSledding: terrain damage tweaks  
   Patches [ShieldSledding](https://www.nexusmods.com/valheim/mods/3433), allowing to customize damage dealt to terrain, such as replacing destruction of shrubs with instead turned off collision on them. Also features optional stamina and speed penalties for colliding with such shrubs.
