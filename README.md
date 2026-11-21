@@ -9,8 +9,7 @@
   Increases radius and fade distance for point of interest music triggers.
 
 - Life Totems  
-  Adds Reliquary building with up to 3 constructible Life Totems, which serve as a death counter. Intended for permadeath playthroughs.  
-  Each totem has highly randomized set of requirements. Dying destroys one of the totems, dying without any totems prints a "game over" message.
+  Adds Reliquary building with up to 3 constructible Life Totems, which serve as a death counter. Each totem has highly randomized set of requirements. Dying destroys one of the totems, dying without any totems prints a "game over" message. Intended for permadeath playthroughs.
 
 - Lock cursor  
   Locks mouse cursor inside game window when navigating menus.
