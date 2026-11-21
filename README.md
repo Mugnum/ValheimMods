@@ -1,5 +1,5 @@
 ## List of Valheim mods
-- Bonus skills uncap
+- Bonus skills uncap  
   Allows skills from buffs to exceed 100, with additive bonuses past 100 being halved.
 
 - Comfort hints  
@@ -46,8 +46,8 @@ I'll be sure to publish these soon, just can't be bothered for now. It's extreme
 
 
 ## Patches
-- MassFarming: planting fix
-  Excludes blocked and otherwise invalid grid positions from planting preview stamina and seed budgets, so affordable clear positions remain available. Accounts for the initial plant's stamina cost and preserves existing grid snapping and placement checks.
+- MassFarming: planting fix  
+  Patches [MassFarming](https://www.nexusmods.com/valheim/mods/527), where when paired with grid placement mod, prioritizes valid placements when out of stamina.
 
 - NomapPrinter: save patch  
   Patches [NomapPrinter](https://www.nexusmods.com/valheim/mods/2505), with LocalFolder option writing to disk once after interacting with cartography table, instead of on every game save.
