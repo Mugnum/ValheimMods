@@ -73,7 +73,7 @@ internal static class ReliquaryWindow
 			var select = card.gameObject.AddComponent<Button>(); select.targetGraphic = background; select.transition = Selectable.Transition.None;
 			select.onClick.AddListener(() => { if (Pending < 0 && CanBuild(index)) { Selected = index; Refresh(); } });
 			RitualUI.Label(card, "#" + (position + 1), 10, 12, 64, 50, 38);
-			var pin = RitualUI.Button(card, "Pin", 18, 72, 44, 40, () => { PinnedRecipe.Toggle(Player.m_localPlayer, offer); Refresh(); });
+			var pin = RitualUI.Button(card, "Pin", 18, 72, 44, 40, () => { PinnedRecipe.Toggle(Player.m_localPlayer, offer); Refresh(); }, silent: true);
 			pin.transition = Selectable.Transition.None;
 			foreach (var label in pin.GetComponentsInChildren<Text>(true)) label.fontSize = 16;
 			var pinImage = pin.GetComponent<Image>();

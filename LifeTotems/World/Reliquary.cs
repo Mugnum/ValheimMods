@@ -24,8 +24,7 @@ internal sealed class Reliquary : MonoBehaviour, Hoverable, Interactable
 	private void OnDestroy() => Loaded.Remove(this);
 	public string GetHoverName() => "Reliquary";
 	public float GetHoverOffset() => 1f;
-	public string GetHoverText() => Localization.instance.Localize("Reliquary\n[<color=yellow><b>$KEY_Use</b></color>] Open rituals")
-		+ (HasCharges ? "\nDismantling returns the bound offerings and their recipes." : "");
+	public string GetHoverText() => Localization.instance.Localize("Reliquary\n[<color=yellow><b>$KEY_Use</b></color>] Open rituals");
 	public bool UseItem(Humanoid user, ItemDrop.ItemData item) => false;
 	public bool Interact(Humanoid user, bool hold, bool alt)
 	{

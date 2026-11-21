@@ -17,7 +17,7 @@ public sealed class Plugin : BaseUnityPlugin
 {
 	public const string PluginGuid = "Mugnum.LifeTotems";
 	public const string PluginName = "Life Totems";
-	public const string PluginVersion = "0.3.1";
+	public const string PluginVersion = "0.3.2";
 	internal const string ReliquaryPrefab = "LifeTotems_Reliquary";
 	internal static ManualLogSource Log;
 	internal static ConfigEntry<bool> KeepEquipment;

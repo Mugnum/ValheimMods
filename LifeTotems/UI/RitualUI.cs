@@ -38,11 +38,13 @@ internal static class RitualUI
 		label.rectTransform.pivot = TopLeft; label.alignment = TextAnchor.MiddleLeft;
 		label.raycastTarget = false; return label;
 	}
-	internal static Button Button(Transform parent, string text, float x, float y, float width, float height, Action clicked)
+	internal static Button Button(Transform parent, string text, float x, float y, float width, float height, Action clicked, bool silent = false)
 	{
 		var go = GUIManager.Instance.CreateButton(text, parent, TopLeft, TopLeft, new Vector2(x, -y), width, height);
 		((RectTransform)go.transform).pivot = TopLeft;
 		foreach (var label in go.GetComponentsInChildren<Text>(true)) label.fontSize = 22;
+		// OnDisable unregisters ButtonSfx's click listener and suppresses its selection sound.
+		if (silent) foreach (var sound in go.GetComponentsInChildren<ButtonSfx>(true)) sound.enabled = false;
 		var button = go.GetComponent<Button>(); button.onClick.AddListener(() => clicked()); return button;
 	}
 	internal static Action Cell(Transform parent, Offering cost, float x, float y, float width, float height, bool compact = false)
