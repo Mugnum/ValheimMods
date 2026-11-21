@@ -8,8 +8,8 @@
 - Increase music radius  
   Increases radius and fade distance for point of interest music triggers.
 
-- Life Totems  
-  Adds Reliquary building with up to 3 constructible Life Totems, which serve as a death counter. Each totem has highly randomized set of requirements. Dying destroys one of the totems, dying without any totems prints a "game over" message. Intended for permadeath playthroughs.
+- Life totems  
+  Adds Reliquary building with up to 3 constructible Life Totems, which serve as a global death counter. Each totem has highly randomized set of requirements. Dying destroys one of the totems, dying without any totems left prints a "game over" message. Intended for permadeath playthroughs.
 
 - Lock cursor  
   Locks mouse cursor inside game window when navigating menus.
@@ -33,11 +33,11 @@
   Removes crafting workbench requirement for standing torches.
 
 - Scythe buff  
-  Increases harvest distance and angle for Scythe.  
+  Increases harvest distance and angle for scythe.  
   Includes optional relative stamina cost customization.
 
 - Stacking meads  
-  Allows to drink several meads of same type at once, with each drink providing reduced bonuses.  
+  Allows to drink several meads of same type at once, with each consecutive drink providing reduced benefits.  
   Currently only "Brew of animal wispers" is supported.
 
 **Notice:** some of the mods were AI-assisted because I'm lazy.  
