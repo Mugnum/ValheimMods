@@ -38,7 +38,7 @@
 
 - Stacking meads  
   Allows to drink several meads of same type at once, with each consecutive drink providing reduced benefits.  
-  Currently only "Brew of animal wispers" is supported.
+  Currently only "Brew of animal whispers" is supported.
 
 **Notice:** some of the mods were AI-assisted because I'm lazy.  
 I'll be sure to publish these soon, just can't be bothered for now. It's extremely easy to compile these yourself in the meantime.
