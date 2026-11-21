@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="steam.props" Condition="Exists('steam.props')" />
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<OutputType>Library</OutputType>
+		<AssemblyName>DeathTweaks.GracePeriodPatch</AssemblyName>
+		<RootNamespace>Mugnum.ValheimMods.$(AssemblyName)</RootNamespace>
+		<Nullable>disable</Nullable>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Deterministic>true</Deterministic>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<Target Name="AddDeathTweaksReferences" AfterTargets="ProcessSteamLibraryPaths">
+		<ItemGroup>
+			<_DeathTweaksAssembly Include="$(GameDir)\BepInEx\plugins\**\DeathTweaks.dll" />
+		</ItemGroup>
+		<Error Condition="'@(_DeathTweaksAssembly->Count())' != '1'"
+			Text="Expected exactly one installed DeathTweaks.dll under $(GameDir)\BepInEx\plugins." />
+		<ItemGroup>
+			<Reference Include="DeathTweaks">
+				<HintPath>@(_DeathTweaksAssembly)</HintPath>
+				<Private>false</Private>
+			</Reference>
+		</ItemGroup>
+	</Target>
+</Project>

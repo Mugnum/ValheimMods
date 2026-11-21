@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../Domain/*.cs" Link="Domain/%(Filename)%(Extension)" />
+    <Compile Include="../Services/*.cs" Link="Services/%(Filename)%(Extension)" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+</Project>

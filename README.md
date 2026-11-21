@@ -1,6 +1,16 @@
 ## List of Valheim mods
+- Bonus skills uncap
+  Allows skills from buffs to exceed 100, with additive bonuses past 100 being halved.
+
 - Comfort hints  
   Shows `^` icon in build menu when constructing the item would increase comfort level.
+
+- Increase music radius  
+  Increases radius and fade distance for point of interest music triggers.
+
+- Life Totems  
+  Adds Reliquary building with up to 3 constructible Life Totems, which serve as a death counter. Intended for permadeath playthroughs.  
+  Each totem has highly randomized set of requirements. Dying destroys one of the totems, dying without any totems prints a "game over" message.
 
 - Lock cursor  
   Locks mouse cursor inside game when navigating menus.
@@ -24,11 +34,22 @@
 - Roadside torches  
   Removes crafting workbench requirement for standing torches.
 
+- Scythe buff  
+  Increases harvest distance and angle for Scythe.  
+  Includes optional relative stamina cost customization.
+
+- Stacking meads  
+  Allows to drink several meads of same type at once, with each drink providing reduced bonuses.  
+  Currently only "Brew of animal wispers" is supported.
+
 **Notice:** some of the mods were AI-assisted because I'm lazy.  
 I'll be sure to publish these soon, just can't be bothered for now. It's extremely easy to compile these yourself in the meantime.
 
 
 ## Patches
+- MassFarming: planting fix
+  Excludes blocked and otherwise invalid grid positions from planting preview stamina and seed budgets, so affordable clear positions remain available. Accounts for the initial plant's stamina cost and preserves existing grid snapping and placement checks.
+
 - NomapPrinter: save patch  
   Patches [NomapPrinter](https://www.nexusmods.com/valheim/mods/2505), with LocalFolder option writing to disk once after interacting with cartography table, instead of on every game save.
 
@@ -56,6 +77,12 @@ I'll be sure to publish these soon, just can't be bothered for now. It's extreme
 
 - ValheimVisualEnhanced: fade fix  
   Patches [ValheimVisualEnhanced](https://thunderstore.io/c/valheim/p/Pumpkin/ValheimVisualEnhanced/) by fixing colors and lighting fade during morning and evening transition. Makes nights slightly brigher.
+
+- Patch: DeathTweaks grace period  
+  Patches [DeathTweaks](https://www.nexusmods.com/valheim/mods/1068) by adding a grade period, where dying again during "No Skill Protection" perk active instead uses vanilla death behavior.
+
+- Wire's Acoustics: pause fix  
+  Patches [WireAcoustics](https://www.nexusmods.com/valheim/mods/4854), fixing increasing volume bug in pause menu.
 
 These probably warrant a PR request, but it requires extensive testing of the rest original mods. So here's an assortment of ghetto patches instead.
 

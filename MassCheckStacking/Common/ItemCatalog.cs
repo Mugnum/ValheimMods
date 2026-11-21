@@ -56,6 +56,7 @@ internal static class ItemCatalog
 	[
 		(ItemCategory.UnprocessedOre, item => Ore.Contains(item.m_shared.m_name)),
 		(ItemCategory.Arrows, item => item.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Ammo),
+		(ItemCategory.RawFood, item => item.m_shared.m_consumeStatusEffect is SE_Puke),
 		(ItemCategory.Meads, item => Meads.Contains(item.m_shared.m_name)
 			|| (item.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Consumable
 				&& item.m_shared.m_consumeStatusEffect && !IsFood(item))),
