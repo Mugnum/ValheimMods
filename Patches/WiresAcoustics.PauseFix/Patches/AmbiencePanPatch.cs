@@ -25,6 +25,7 @@ internal static class AmbiencePanPatch
 	{
 		var type = AccessTools.TypeByName("WiresAcoustics.Ambience")
 			?? throw new TypeLoadException("Could not find WiresAcoustics.Ambience.");
+
 		var method = AccessTools.Method(type, "Pan", [typeof(AudioMan), typeof(Transform), typeof(float)]);
 
 		if (method == null || !method.IsStatic || method.ReturnType != typeof(void))
@@ -44,8 +45,6 @@ internal static class AmbiencePanPatch
 	[UsedImplicitly]
 	internal static bool Prefix(float __2)
 	{
-		// AudioMan.Update keeps running while paused, but FixedUpdate no longer resets wind volume.
-		// A visible multiplayer menu alone is not a pause and must not disable acoustics.
 		return __2 > 0f && !Game.IsPaused();
 	}
 }
