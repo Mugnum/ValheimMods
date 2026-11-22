@@ -45,6 +45,9 @@ I'll be sure to publish these soon, just can't be bothered for now. It's extreme
 
 
 ## Patches
+- DeathTweaks: grace period  
+  Patches [DeathTweaks](https://www.nexusmods.com/valheim/mods/1068) by adding a grade period, where dying again during "No Skill Protection" perk active instead uses vanilla death behavior.
+
 - MassFarming: planting fix  
   Patches [MassFarming](https://www.nexusmods.com/valheim/mods/527), where when paired with grid placement mod, prioritizes valid placements when out of stamina.
 
@@ -76,9 +79,6 @@ I'll be sure to publish these soon, just can't be bothered for now. It's extreme
 
 - ValheimVisualEnhanced: fade fix  
   Patches [ValheimVisualEnhanced](https://thunderstore.io/c/valheim/p/Pumpkin/ValheimVisualEnhanced/), fixing colors and lighting fade during morning and evening transition. Makes nights slightly brigher.
-
-- Patch: DeathTweaks grace period  
-  Patches [DeathTweaks](https://www.nexusmods.com/valheim/mods/1068) by adding a grade period, where dying again during "No Skill Protection" perk active instead uses vanilla death behavior.
 
 - Wire's Acoustics: pause fix  
   Patches [WireAcoustics](https://www.nexusmods.com/valheim/mods/4854), fixing increasing volume bug in pause menu.
